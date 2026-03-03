@@ -1,0 +1,400 @@
+/* #about.content.active {
+  width: 100%;
+  margin: 2rem auto;
+  display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+}
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 450px;
+    margin: 0 auto;
+}
+.sidebar h3{
+  font-size: 2rem;
+}
+.sidebar p{
+  font-size: 1.1rem;
+text-align: justify;
+}
+.sidebar.tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+ .sidebar.tabs span{
+    border: 2px solid transparent;
+    text-align: center;
+    padding: 1rem;
+
+  font-size: 1.3rem;
+  font-weight: 700;
+    border-radius: 5px;
+    background: var(--secondary-color);
+    transition: all 0.3s linear;
+  padding: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+.sidebar.tabs span:hover {
+  border-color: var(--green-color);
+    cursor: pointer;
+color: var(--green-color);
+}
+.tab.active {
+    border: 2px solid var(--green-color) !important;
+  color: var(--green-color) ;
+}
+.tab-content {
+  display: none;
+}
+.tab-content.active {
+  display: inline-flex;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+    flex-direction: column;
+    gap:2rem;
+}
+aside h2  span{
+    color: var(--green-color);
+}
+.exprience-list {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+  overflow-y: auto;
+  max-height: 300px;
+  padding: 1rem;
+}
+.exprience-list::-webkit-scrollbar {
+  width: 5px;
+}
+.exprience-list::-webkit-scrollbar-thumb {
+  background-color: var(--green-color);
+  border-radius: 10px;
+}
+.exprience-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    border: 2px solid transparent;
+  background-color: var(--secondary-color);
+  padding: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+    transition: all 0.3s linear;
+}
+
+.exprience-box:hover {
+  border-color: var(--green-color);
+  box-shadow:5px 5px 10px var(--green-color),
+    -5px 5px 10px var(--green-color),5px -5px 10px var(--green-color),-5px -5px 10px var(--green-color);
+}
+.exprience-box h4 {
+  font-size: 1.4rem;
+
+}
+.exprience-box h3 {
+  font-size: 1.3rem;
+  color: var(--green-color);
+
+}
+.exprience-box p {
+    text-align: justify;
+ display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+} */
+
+
+
+/* ================= ABOUT LAYOUT ================= */
+#about.content.active {
+  width: 100%;
+  margin: 2rem auto;
+  padding: 0 20px;  /* ✅ permanent side spacing */
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.sidebar h3 {
+  font-size: 2rem;
+}
+
+.sidebar p {
+  font-size: 1.2rem;
+  text-align: justify;
+}
+
+/* ================= TABS ================= */
+.sidebar .tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sidebar .tabs span {
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 700;
+  padding: 0.7rem;
+  border-radius: 5px;
+  background: var(--secondary-color);
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+
+.sidebar .tabs span:hover,
+.tab.active {
+  border: 2px solid var(--green-color);
+  color: var(--green-color);
+}
+
+/* ================= TAB CONTENT ================= */
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+
+aside h2 span {
+  color: var(--green-color);
+}
+
+/* ================= EXPERIENCE / EDUCATION ================= */
+.exprience-list,
+.education-list {
+  display: grid;
+  gap: 2rem;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+.exprience-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  background-color: var(--secondary-color);
+  padding: 1rem;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.exprience-box h4 {
+  font-size: 1.4rem;
+}
+
+.exprience-box h3 {
+  font-size: 1.3rem;
+  color: var(--green-color);
+}
+
+.exprience-box p {
+  text-align: justify;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ✅ FIXED SELECTOR */
+.exprience-box .company-name p {
+  font-size: 1.2rem;
+}
+
+/* ================= COMPANY NAME ================= */
+.company-name {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.company-name .dot {
+  width: 10px;
+  height: 10px;
+  background-color: var(--green-color);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.company-name p {
+  margin: 0;
+  color: #dcdcdc;
+}
+
+/* ================= SKILLS ================= */
+.skills-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+.skill-box {
+  height: 140px;
+  display: flex;
+  flex-direction: column;     /* ✅ Stack image + text vertically */
+  align-items: center;
+  justify-content: center;
+  background: var(--secondary-color);
+  border: 2px solid var(--disabled);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.skill-box img {
+  width: 60px;
+  height: auto;
+  margin-bottom: 6px;         /* ✅ Space between image & text */
+}
+
+.skill-box p {
+  font-size: 12px;            /* ✅ Small text */
+  margin: 0;
+  font-weight: 500;
+  color: var(--text-color);   /* Optional */
+}
+
+/* .skill-box img {
+  width: 60px;
+  height: auto;
+} */
+
+/* ================= SHARED HOVER GLOW ================= */
+.exprience-box:hover,
+.skill-box:hover {
+  border-color: var(--green-color);
+  box-shadow:
+    5px  5px  10px var(--green-color),
+   -5px  5px  10px var(--green-color),
+    5px -5px  10px var(--green-color),
+   -5px -5px  10px var(--green-color);
+}
+
+/* ================= SCROLLBARS (ONE PLACE ONLY) ================= */
+.exprience-list,
+.education-list,
+.skills-list,.about-info {
+  scrollbar-width: thin;
+  scrollbar-color: var(--green-color) transparent;
+}
+
+.exprience-list::-webkit-scrollbar,
+.education-list::-webkit-scrollbar,
+.skills-list::-webkit-scrollbar,.about-info::-webkit-scrollbar {
+  width: 6px;
+}
+
+.exprience-list::-webkit-scrollbar-track,
+.education-list::-webkit-scrollbar-track,
+.skills-list::-webkit-scrollbar-track,.about-info::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.exprience-list::-webkit-scrollbar-thumb,
+.education-list::-webkit-scrollbar-thumb,
+.skills-list::-webkit-scrollbar-thumb,.about-info::-webkit-scrollbar-thumb {
+  background-color: var(--green-color);
+  border-radius: 10px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (min-width: 786px) {
+  #about.content.active {
+    max-width: 1000px;
+    margin: 3rem auto;
+    grid-template-columns: 360px 1fr;
+    gap: 2.5rem;
+     padding: 0 18px;
+  }
+
+  .skills-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  #about.content.active {
+    max-width: 1200px;
+    margin: 4rem auto;
+    grid-template-columns: 420px 1fr;
+    gap: 3rem;
+  }
+
+  .skills-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .exprience-box h3 {
+    font-size: 1.8rem;
+  }
+}
+
+/* this section  the  about me section*/
+
+/* ===== ABOUT GRID ===== */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem 4rem;
+}
+
+.about-item h4 {
+  color: var(--green-color);
+  font-size: 1.4rem;
+  margin-bottom: 6px;
+}
+
+.about-item p {
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+/* Address full width */
+.about-item.full {
+  grid-column: span 2;
+}
+
+.about-info{
+  max-height: 250px;
+  overflow-y: auto;
+  padding: 1rem;
+}
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-item.full {
+    grid-column: span 1;
+  }
+}
+
+
+

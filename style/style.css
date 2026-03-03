@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+:root {
+  --primary-color: #030a16;
+  --secondary-color: #0b1220;
+  --green-color: #7cf03d;
+  --white-color: #ffffff;
+  --gray-color: #bdbdbd;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  background: var(--primary-color);
+  color: var(--white-color);
+  overflow-x: hidden;
+}
+
+/* ---------------- LAYOUT ---------------- */
+.container {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.content {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.4s ease;
+}
+
+.content.active {
+  opacity: 1;
+  visibility: visible;
+  position: relative;
+}
+
+
+/* ---------------- HEADER ---------------- */
+header {
+  height: 90px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 48px; /* ⬅ reduced from 80px */
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.brand-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.brand-info img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.brand-info h2 {
+  font-size: 1.9rem;
+  font-weight: 800;
+}
+
+/* ---------------- NAVIGATION (DESKTOP) ---------------- */
+.menu-area {
+  position: relative;
+}
+
+.menu-area nav {
+  display: flex;
+  gap: 35px;
+}
+
+.menu-area nav a {
+  color: var(--white-color);
+  text-decoration: none;
+  font-size: 18px;
+  position: relative;
+  transition: 0.3s;
+}
+
+.menu-area nav a.active,
+.menu-area nav a:hover {
+  color: var(--green-color);
+}
+
+.menu-area nav a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: var(--green-color);
+  left: 0;
+  bottom: -6px;
+  transition: 0.3s;
+}
+
+.menu-area nav a:hover::after {
+  width: 100%;
+}
+
+/* ---------------- MOBILE MENU ---------------- */
+.menu-icon {
+  display: none;
+  font-size: 32px;
+  cursor: pointer;
+  color: white;
+}
+
+#overlay {
+  display: none;
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 768px) {
+
+  header {
+    padding: 15px 20px;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  .menu-area nav {
+    position: fixed;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-20px);
+    width: 92%;
+    max-width: 420px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    background: transparent;
+    padding: 10px;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s ease;
+    z-index: 1001;
+  }
+
+  #menu-toggle:checked ~ nav {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+  }
+
+  .menu-area nav a {
+    background: #0b1220;
+    padding: 16px;
+    border-radius: 14px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.06);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+
+    opacity: 0;
+    transform: translateX(100%);
+    transition: 0.4s ease;
+    transition-delay: calc(var(--i) * 0.1s);
+  }
+
+  #menu-toggle:checked ~ nav a {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  #menu-toggle:checked ~ #overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 1000;
+  }
+
+  .menu-area nav a.active {
+    background: #7cf03d;
+    color: black;
+    font-weight: 600;
+  }
+
+  .menu-area nav a::after {
+    display: none;
+  }
+}
+
