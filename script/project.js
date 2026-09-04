@@ -1,129 +1,3 @@
-{
-  /* <div class="project-info">
-    <h3>01</h3>
-    <h4>Fullstack Threads</h4>
-    <p>project discrption </p>
-    <div class="tech-stack">
-      <span>MongoDb</span>
-       <span>MongoDb</span>
-        <span>MongoDb</span>
-         <span>MongoDb</span>
-          <span>MongoDb</span>
-    </div>
-    <hr>
-    <div class="links">
-      <a href="">
-        <i class="ph ph-arrow-right"></i>
-      </a>
-      <a href=""><i class="ph ph-github-logo"></i></a>
-    </div>
-  </div> */
-}
-
-//   const projectList=[
-//     {
-//         id:1,
-//         number:"01",
-//         title:"FullStack Thread Clone",
-//         description:"Lorem ipSum dolor sit amet consectur,adipisicing elit.Nihil",
-//         techStack:["MongoDB","Express","React","Node"],
-//         image: "assets/projects/project1.webp",
-//         liveLink:"#",
-//         githubLink:"#",
-//     },
-//     {
-//         id:2,
-//         number:"02",
-//         title:"FullStack Thread Clone",
-//         description:"Lorem ipSum dolor sit amet consectur,adipisicing elit.Nihil",
-//         techStack:["MongoDB","Express","React","Node"],
-//         image: "assets/projects/project1.webp",
-//         liveLink:"#",
-//         githubLink:"#",
-//     },
-//    {
-//         id:3,
-//         number:"03",
-//         title:"FullStack Thread Clone",
-//         description:"Lorem ipSum dolor sit amet consectur,adipisicing elit.Nihil",
-//         techStack:["MongoDB","Express","React","Node"],
-//         image: "assets/projects/project1.webp",
-//         liveLink:"#",
-//         githubLink:"#",
-//     },
-//     {
-//         id:4,
-//         number:"04",
-//         title:"FullStack Thread Clone",
-//         description:"Lorem ipSum dolor sit amet consectur,adipisicing elit.Nihil",
-//         techStack:["MongoDB","Express","React","Node"],
-//         image: "assets/projects/project1.webp",
-//         liveLink:"#",
-//         githubLink:"#",
-//     }
-//   ]
-
-//   const projects = document.querySelector(".projects");
-//   let currentIndex=0;
-
-//   const renderProject=(index)=>{
-// const projectContent = projectList[index]
-// const previousDisabled= currentIndex===0;
-// const nextDisabled= currentIndex===projectList.length -1;
-// projects.innerHTML=
-
-// `
-// <div class="project-info">
-//     <h3>${projectContent?.number}</h3>
-//     <h4>${projectContent?.title}</h4>
-//     <p>${projectContent?.description}</p>
-//     <div class="tech-stack">
-//       ${projectContent?.techStack?.map((tech,i)=>{
-//         return
-//         `
-//         <span key ${i}>${tech}</span>
-//         `
-//       }).join(",")}
-//     </div>
-//     <hr>
-//     <div class="links">
-//       <a href="${projectContent?.liveLink}">
-//         <i class="ph ph-arrow-right"></i>
-//       </a>
-//       <a href="${projectContent?.githubLink}"><i class="ph ph-github-logo"></i></a>
-//     </div>
-//   </div>
-//   <div class="carousel">
-//     <img src="${projectContent?.image}" alt="${projectContent?.title}">
-
-//   <div class="arrows">
-//     <a href="#" id ="previous class = ${previousDisabled?"disabled-btn":""}>
-//       <i class="ph ph-caret-left"></i>
-//     </a>
-//     <a href="#" id ="next" class = ${nextDisabled?"disabled-btn":""}>
-//       <i class="ph ph-caret-right"></i>
-//     </a>
-//   </div>
-// </div>
-// `;
-// document.getElementById('previous').addEventListener("click",()=>{
-//     e.preventDefault();
-
-//     if(currentIndex> 0){
-//         currentIndex --;
-//         renderProject(currentIndex)
-//     }
-// })
-// document.getElementById('previous').addEventListener("click",()=>{
-//     e.nextDisabled();
-
-//     if(currentIndex < projectList.length -1 ){
-//         currentIndex ++;
-//         renderProject(currentIndex)
-//     };
-//     renderProject(currentIndex);
-// })
-//   }
 
 const projectList = [
   {
@@ -187,26 +61,109 @@ const projectList = [
     githubLink: "https://github.com/akumar9334/myWeatherApplication.git",
   },
   {
-  id: 5,
-  number: "05",
-  title: "E-Commerce Site",
+    id: 5,
+    number: "05",
+    title: "E-Commerce Site",
+    description:
+      "The key purpose of this E-Commerce platform is to provide a complete online shopping experience where users can browse products, search and filter items, add products to cart, securely place orders, and track their purchases. The system includes user authentication, product management, order processing, payment integration, and an admin dashboard for managing inventory, customers, and sales analytics.",
+    techStack: [
+      "HTML",
+      "CSS",
+      "Angular",
+      "Java",
+      "MVC",
+      "Microservices",
+      "REST API",
+      "Spring Boot",
+      "MySQL",
+      "Docker",
+    ],
+    image: "assets/projects/ecommerce.png",
+    liveLink: "#",
+    githubLink: "https://github.com/akumar9334/e-commerce-site.git",
+  },
+  {
+    id: 6,
+    number: "06",
+    title: "Job Portal",
+    description:
+      "A full-stack job portal designed to connect job seekers with employers. Users can create profiles, search and apply for jobs, while companies can post jobs, manage applications, and review candidates through a secure and user-friendly platform.",
+
+    techStack: [
+      "HTML",
+      "CSS",
+      "Angular",
+      "Java",
+      "Spring Boot",
+      "Microservices",
+      "REST API",
+      "Spring Security",
+      "MySQL",
+      "OpenAI API",
+      "AI Integration",
+      "Ollama",
+      "Docker",
+    ],
+    
+
+    image: "assets/projects/jobportal.png",
+
+    liveLink: "#",
+
+    githubLink: "#",
+  },
+  {
+  id: 7,
+  number: "07",
+  title: "Food Distribution Portal",
   description:
-    "The key purpose of this E-Commerce platform is to provide a complete online shopping experience where users can browse products, search and filter items, add products to cart, securely place orders, and track their purchases. The system includes user authentication, product management, order processing, payment integration, and an admin dashboard for managing inventory, customers, and sales analytics.",
+    "A full-stack food distribution platform designed to manage food orders, distribution, and delivery operations. Users can browse available food items and place orders, while administrators can manage products, orders, users, inventory, and delivery activities through a centralized dashboard.",
+
   techStack: [
     "HTML",
     "CSS",
     "Angular",
     "Java",
-    "MVC",
-    "Microservices",
-    "REST API",
     "Spring Boot",
+    "REST API",
+    "Spring Security",
     "MySQL",
+    "Docker",
+    "OpenAI API",
+  ],
+
+  image: "assets/projects/food-distribution.png",
+
+  liveLink: "#",
+
+  githubLink: "#"
+},
+
+{
+  id: 8,
+  number: "08",
+  title: "Offline AI Chatbot",
+  description:
+    "An offline AI chatbot built with Ollama and Code Llama, allowing users to interact with an AI model locally without relying on external cloud APIs. The system provides conversational responses, secure local processing, and an easy-to-use chat interface.",
+
+  techStack: [
+    "HTML",
+    "CSS",
+    "Angular",
+    "Java",
+    "Spring Boot",
+    "REST API",
+    "Ollama",
+    "Code Llama",
+    "AI Integration",
     "Docker"
   ],
-  image: "assets/projects/ecommerce.png",
+
+  image: "assets/projects/ai-chatbot.png",
+
   liveLink: "#",
-  githubLink: "https://github.com/akumar9334/e-commerce-site.git",
+
+  githubLink: "#"
 }
 ];
 

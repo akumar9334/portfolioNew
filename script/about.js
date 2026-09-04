@@ -1,40 +1,4 @@
-// const aboutTabs=document.querySelectorAll(".tab");
-// const aboutContent=document.querySelectorAll(".tab-content");
 
-// // document.addEventListener("DOMContentLoaded",()=>{
-// //     if(aboutTabs){
-// //         aboutTabs[0].click();
-// //     }
-// // });
-
-// aboutTabs.forEach((tab)=>{
-//     tab.addEventListener("click",(e)=>{
-//         e.preventDefault();
-//         aboutTabs.forEach((a)=>a.classList.remove("active"));
-
-//     tab.classList.add("active");
-// aboutContent.forEach((C)=>{
-//     C.classList.remove("active");
-// });
-// const activeTab=tab.dataset.section;
-// document.getElementById(activeTab).classList.add("active")
-// if(activeTab ==="experience"){
-//     const experiences=document.querySelector(".exprience-list");
-//     const experienceList=[{
-//         id:1,
-//         date:"2020-2022",
-//         position:"Frontend Developer",
-//         company:"Tech Company",
-//         details:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-//     }];
-//     const experienceContent=experienceList.map((ele)=>{
-//         return
-//          `
-//         `
-//     }
-// }
-// });
-// });
 
 document.addEventListener("DOMContentLoaded", () => {
   const aboutTabs = document.querySelectorAll("#about .tab");
@@ -44,33 +8,51 @@ document.addEventListener("DOMContentLoaded", () => {
      DATA
   ====================== */
 
-  const experienceData = [
-    {
-      id: 1,
-      date: "2024 - Present",
-      position: "Full Stack Developer",
-      company: "Safedot E solutions Pvt Ltd",
-      details:
-        "Worked as a Full Stack Developer on the CCTNS national project, developing backend modules such as FIR, GD, Arrest, Seizure, and Investigation Reports. Built REST APIs, implemented business logic, managed databases, and supported integrations with state police systems.",
-    },
-    {
-      id: 2,
-      date: "2023 - 2024",
-      position: "Full Stack Developer Intern",
-      company: "Skilldezire  Pvt Ltd",
-      details:
-        "Worked on real-world full stack projects, developing front-end and back-end applications, managing databases, and integrating APIs using version control.",
-    },
+const experienceData = [
+{
+  id: 1,
+ date: "Jul 2025 - Dec 2025",
+  position: "Software Developer",
+  company: "Safedot E-Solutions Pvt. Ltd.",
+  details:
+    "Worked on CCTNS and PRISMA projects, developing backend services, REST APIs, database operations, and application features using Java, Spring Boot, MySQL, and Angular."
+},
 
-    {
-      id: 3,
-      date: "2023",
-      position: "Machine Learning Certification",
-      company: "Talent Shine",
-      details:
-        "Completed certification in Machine Learning with Python, gaining hands-on experience in data analysis, model building, and basic machine learning algorithms.",
-    },
-  ];
+{
+  id: 2,
+  date: "CCTNS | Jan 2025 - Present",
+  position: "Crime and Criminal Tracking Network & Systems",
+  company: "Safedot E-Solutions Pvt. Ltd.",
+  details:
+    "Developed backend APIs and modules for FIR, GD, Arrest, Seizure, Investigation, IIF, reports, integrations, and case management."
+},
+
+{
+  id: 3,
+  date: "PRISMA |Jan 2025 - Present",
+  position: "Punjab Real-Time Information System for Monitoring and Analysis",
+  company: "Safedot E-Solutions Pvt. Ltd.",
+  details:
+    "Developed Spring Boot APIs and database services for crime dashboards, reports, investigation pendency, analytics, Angular integration, and performance optimization."
+},
+  {
+    id: 4,
+    date: "2023 - 2024",
+    position: "Full Stack Developer Intern",
+    company: "Skilldezire Pvt. Ltd.",
+    details:
+      "Worked on full-stack web applications, developing frontend and backend features, integrating REST APIs, managing databases, and using Git for version control.",
+  },
+
+  {
+    id: 5,
+    date: "2023",
+    position: "Machine Learning Certification",
+    company: "Talent Shine",
+    details:
+      "Completed Machine Learning with Python certification with hands-on exposure to data analysis, model building, and fundamental machine learning algorithms.",
+  },
+];
 
   const educationData = [
     {
@@ -99,7 +81,8 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   ];
 
-  const skillsData = [
+const skillsData = [
+
   // ===== Languages =====
   {
     id: 1,
@@ -108,88 +91,192 @@ document.addEventListener("DOMContentLoaded", () => {
   },
   {
     id: 2,
+    name: "Python",
+    icon: "assets/skills/python.png",
+  },
+  {
+    id: 3,
+    name: "JavaScript",
+    icon: "assets/skills/js.png",
+  },
+
+  {
+    id: 5,
     name: "HTML",
     icon: "assets/skills/html.png",
   },
   {
-    id: 3,
+    id: 6,
     name: "CSS",
     icon: "assets/skills/css.png",
   },
   {
-    id: 4,
-    name: "JavaScript",
-    icon: "assets/skills/js.png",
-  },
-  {
-    id: 5,
+    id: 7,
     name: "JSP",
     icon: "assets/skills/jsp.svg",
   },
 
-  // ===== Frameworks & Libraries =====
+  // ===== Backend =====
   {
-    id: 6,
-    name: "Angular",
-    icon: "assets/skills/angular.svg",
-  },
-  {
-    id: 7,
+    id: 8,
     name: "Spring Boot",
     icon: "assets/skills/springboot.png",
   },
   {
-    id: 8,
+    id: 9,
+    name: "Spring MVC",
+    icon: "assets/skills/springmvc.png",
+  },
+  {
+    id: 10,
+    name: "Spring Security",
+    icon: "assets/skills/springsecurity.png",
+  },
+  {
+    id: 11,
+    name: "REST APIs",
+    icon: "assets/skills/restapi.png",
+  },
+  {
+    id: 12,
+    name: "Microservices",
+    icon: "assets/skills/microservice.png",
+  },
+  {
+    id: 13,
+    name: "Hibernate",
+    icon: "assets/skills/hibernate.png",
+  },
+  {
+    id: 14,
+    name: "JPA",
+    icon: "assets/skills/jpa.png",
+  },
+  {
+    id: 15,
+    name: "JDBC",
+    icon: "assets/skills/jdbc.png",
+  },
+  {
+    id: 16,
     name: "Node.js",
     icon: "assets/skills/node.png",
   },
 
+  // ===== Frontend =====
+  {
+    id: 17,
+    name: "Angular",
+    icon: "assets/skills/angular.svg",
+  },
+
   // ===== Databases =====
   {
-    id: 9,
+    id: 18,
     name: "MySQL",
     icon: "assets/skills/mysql.png",
   },
   {
-    id: 10,
-    name: "JPA",
-    icon: "assets/skills/jpa.png",
+    id: 19,
+    name: "PostgreSQL",
+    icon: "assets/skills/postgresql.png",
   },
- 
+  {
+    id: 20,
+    name: "MongoDB",
+    icon: "assets/skills/mongodb.png",
+  },
+  {
+    id: 21,
+    name: "Redis",
+    icon: "assets/skills/redis.png",
+  },
+
+  // ===== Messaging =====
+  {
+    id: 22,
+    name: "Apache Kafka",
+    icon: "assets/skills/kafka.png",
+  },
+  {
+    id: 23,
+    name: "RabbitMQ",
+    icon: "assets/skills/rabbitmq.png",
+  },
+
+  // ===== AI =====
+  {
+    id: 24,
+    name: "OpenAI API",
+    icon: "assets/skills/openai.png",
+  },
+  {
+    id: 25,
+    name: "Ollama",
+    icon: "assets/skills/ollama.png",
+  },
+
 
   // ===== DevOps & Tools =====
   {
-    id: 11,
+    id: 27,
     name: "Git",
     icon: "assets/skills/git.png",
   },
   {
-    id: 12,
+    id: 28,
     name: "Docker",
     icon: "assets/skills/docker.png",
   },
   {
-    id: 13,
+    id: 29,
+    name: "Jenkins",
+    icon: "assets/skills/jenkins.png",
+  },
+  {
+    id: 30,
+    name: "Maven",
+    icon: "assets/skills/maven.png",
+  },
+  {
+    id: 31,
+    name: "Tomcat",
+    icon: "assets/skills/tomcat.png",
+  },
+  {
+    id: 32,
     name: "CI/CD",
     icon: "assets/skills/cicd.svg",
   },
 
   // ===== Concepts =====
   {
-    id: 14,
+    id: 33,
+    name: "OOPS",
+    icon: "assets/skills/oops.png",
+  },
+  {
+    id: 34,
     name: "MVC Architecture",
     icon: "assets/skills/mvc.png",
   },
   {
-    id: 15,
+    id: 35,
     name: "Data Structures & Algorithms",
     icon: "assets/skills/dsa.png",
   },
+
   {
-    id: 16,
-    name: "Microservices",
-    icon: "assets/skills/microservice.png",
+    id: 37,
+    name: "Database Optimization",
+    icon: "assets/skills/database-optimization.png",
+  },
+  {
+    id: 38,
+    name: "Dist.Systems",
+    icon: "assets/skills/distsystem.png",
   }
+
 ];
 
   const aboutData = [

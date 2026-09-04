@@ -1,42 +1,44 @@
 document.addEventListener("DOMContentLoaded", function () {
-
   const select = document.getElementById("country-code");
 
-  fetch("https://restcountries.com/v3.1/all?fields=name,idd")
-    .then(response => response.json())
-    .then(data => {
+  if (!select) return;
 
-      select.innerHTML = "";
+  const countryCodes = [
+    { name: "India", code: "+91" },
+    { name: "United States", code: "+1" },
+    { name: "United Kingdom", code: "+44" },
+    { name: "Canada", code: "+1" },
+    { name: "Australia", code: "+61" },
+    { name: "Germany", code: "+49" },
+    { name: "France", code: "+33" },
+    { name: "Singapore", code: "+65" },
+    { name: "UAE", code: "+971" },
+    { name: "Nepal", code: "+977" },
+    { name: "Bangladesh", code: "+880" },
+    { name: "Pakistan", code: "+92" },
+    { name: "Sri Lanka", code: "+94" },
+    { name: "Japan", code: "+81" },
+    { name: "China", code: "+86" },
+    { name: "New Zealand", code: "+64" },
+    { name: "South Africa", code: "+27" },
+    { name: "Russia", code: "+7" },
+    { name: "Brazil", code: "+55" },
+    { name: "Italy", code: "+39" },
+    { name: "Spain", code: "+34" }
+  ];
 
-      data.sort((a, b) =>
-        a.name.common.localeCompare(b.name.common)
-      );
+  select.innerHTML = "";
 
-      data.forEach(country => {
-        if (country.idd && country.idd.root && country.idd.suffixes) {
+  countryCodes.forEach(country => {
+    const option = document.createElement("option");
 
-          country.idd.suffixes.forEach(suffix => {
+    option.value = country.code;
+    option.textContent = `${country.name} (${country.code})`;
 
-            const code = country.idd.root + suffix;
-            const option = document.createElement("option");
+    if (country.code === "+91") {
+      option.selected = true;
+    }
 
-            option.value = code;
-            option.textContent = `${country.name.common} (${code})`;
-
-            // ✅ Auto select India
-            if (code === "+91") {
-              option.selected = true;
-            }
-
-            select.appendChild(option);
-          });
-        }
-      });
-
-    })
-    .catch(error => {
-      select.innerHTML = "<option>Error loading codes</option>";
-      console.error("Error:", error);
-    });
-
+    select.appendChild(option);
+  });
 });

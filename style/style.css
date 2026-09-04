@@ -27,6 +27,7 @@ html, body {
 .container {
   width: 100%;
   min-height: 100vh;
+  padding-top: 90px;
 }
 
 .content {
@@ -41,18 +42,29 @@ html, body {
   opacity: 1;
   visibility: visible;
   position: relative;
+  min-height: calc(100vh - 90px);
 }
 
 
 /* ---------------- HEADER ---------------- */
+/* ---------------- HEADER ---------------- */
 header {
   height: 90px;
+  width: 100%;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 48px; /* ⬅ reduced from 80px */
-  max-width: 1400px;
-  margin: 0 auto;
+
+  padding: 20px 48px;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  z-index: 1000;
+
+  background: var(--primary-color);
 }
 
 .brand-info {
@@ -107,10 +119,10 @@ header {
   transition: 0.3s;
 }
 
-.menu-area nav a:hover::after {
+.menu-area nav a:hover::after,
+.menu-area nav a.active::after {
   width: 100%;
 }
-
 /* ---------------- MOBILE MENU ---------------- */
 .menu-icon {
   display: none;
@@ -126,7 +138,8 @@ header {
 /* ---------------- RESPONSIVE ---------------- */
 @media (max-width: 768px) {
 
-  header {
+    header {
+    height: 80px;
     padding: 15px 20px;
   }
 
@@ -139,6 +152,7 @@ header {
     top: 80px;
     left: 50%;
     transform: translateX(-50%) translateY(-20px);
+
     width: 92%;
     max-width: 420px;
 
@@ -151,10 +165,10 @@ header {
 
     opacity: 0;
     pointer-events: none;
+
     transition: 0.3s ease;
     z-index: 1001;
   }
-
   #menu-toggle:checked ~ nav {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
@@ -198,4 +212,6 @@ header {
     display: none;
   }
 }
+
+
 

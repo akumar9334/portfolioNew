@@ -224,12 +224,24 @@
 
 /* ---------------- DESKTOP ---------------- */
 
+/* ---------------- DESKTOP ---------------- */
+
 @media (min-width: 1024px) {
+
   .hero {
-    justify-content: space-between;
-    gap: 4rem;
-    margin: 4rem auto;
+    width: 100%;
+    max-width: 1320px;
+
+    min-height: calc(100vh - 90px);
+
+    margin: 0 auto;
+    padding: 0 20px;
+
+    display: flex;
     align-items: center;
+    justify-content: space-between;
+
+    gap: 4rem;
   }
 
   .hero-text {
@@ -240,6 +252,21 @@
   .hero-text p {
     text-align: left;
     max-width: 520px;
+    line-height: 1.7;
+    margin: 20px 0;
+  }
+
+  .hero-title {
+    font-size: clamp(2.6rem, 4vw, 4.2rem);
+  }
+
+  .hero-text h3 {
+    font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+    justify-content: flex-start;
+  }
+
+  .btn-social-wrap {
+    justify-content: flex-start;
   }
 
   .hero-image {
@@ -252,15 +279,7 @@
     height: calc(100% - 15px);
   }
 
-  .hero-title {
-    font-size: clamp(2.6rem, 4vw, 4.2rem);
-  }
-
-  .hero-text h3 {
-    font-size: clamp(1.4rem, 2.5vw, 2.2rem);
-  }
-
   .hero-image::after {
-    inset: -10%; /* keeps same arc proportion on large screen */
+    inset: -10%;
   }
 }

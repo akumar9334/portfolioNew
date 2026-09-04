@@ -92,9 +92,12 @@
     <span class="highlight">Ajay</span> Kumar
   </h1>
   <h3>I`m a <span id="typing-span"></span></h3>
-  <p>
-  Passionate Full-Stack Developer crafting scalable web applications using Java, Spring Boot, Angular, MySQL, handling database operations, and deploying applications.
-</p>    
+<p>
+  Java Full Stack Developer with 2+ years of experience building scalable
+  applications using Java, Spring Boot, Microservices, Angular, and MySQL.
+  Skilled in REST APIs, database optimization, and reliable production-grade
+  applications, including government CCTNS systems.
+</p>  
     <div class="btn-social-wrap">
       <button class="btn" id="download-cv">Download CV</button>
 
@@ -107,7 +110,7 @@
     </div>
   </div>  <!-- ✅ THIS WAS MISSING -->
   <div class="hero-image">
-    <img src="assets/ajayimagejpeg(1).png" alt="profile" />
+    <img src="assets/ajayImage.png" alt="profile" />
   </div>
 </section>
 
@@ -139,7 +142,7 @@
   <aside id="exprience" class="tab-content active">
     <h2>My <span>Exprience</span></h2>
     <p>
-      I have 2 years of hands-on experience in building web applications, including REST API development, Angular UI implementation, MySQL database management, and performance optimization. I have also contributed to code maintenance and bug fixing.
+      I have 2+ years of hands-on experience in building web applications, including REST API development, Angular UI implementation, MySQL database management, and performance optimization. I have also contributed to code maintenance and bug fixing.
     </p>
 
     <div class="exprience-list">
@@ -213,21 +216,20 @@
       </div>
 <!--code-->
  <div>
-        <label>Code :</label>
-       <select id="country-code">
-  <option>Loading...</option>
-</select>
-      </div>
-     <div>
+  <label>Code :</label>
+  <select id="country-code" required></select>
+</div>
+
+<div>
   <label>Phone :</label>
-  <input 
-  type="tel" 
-  id="phone" 
-  placeholder="Enter phone Number"
-  pattern="[0-9]{6,15}"
-  inputmode="numeric"
-  required
->
+  <input
+    type="tel"
+    id="phone"
+    placeholder="Enter phone Number"
+    pattern="[0-9]{6,15}"
+    inputmode="numeric"
+    required
+  >
 </div>
 
       <div>
@@ -240,6 +242,7 @@
   </fieldset>
 </form>
 </section>
+
     </div>
     <script src="script/script.js" type="module" defer></script>
     <script src="script/countryCd.js" type="module" defer></script>

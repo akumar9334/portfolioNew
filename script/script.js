@@ -52,59 +52,272 @@ function typeEffect() {
 // =====================
 // SPA Navigation
 // =====================
+
 document.addEventListener("DOMContentLoaded", () => {
 
-  // Start typing
+  // =========================
+  // Start Typing Effect
+  // =========================
   typeEffect();
 
-  const navlinks = document.querySelectorAll('.navlink');
-  const tabs = document.querySelectorAll('.content');
+  const navlinks = document.querySelectorAll(".navlink");
+  const sections = document.querySelectorAll(".content");
+  const toggle = document.getElementById("menu-toggle");
 
-  function activateTab(tabId) {
+  let currentIndex = 0;
+  let isScrolling = false;
+
+  // =========================
+  // SHOW SECTION
+  // =========================
+  function showSection(index) {
+
+    if (index < 0 || index >= sections.length) {
+      return;
+    }
+
+    sections.forEach(section => {
+      section.classList.remove("active");
+    });
+
+    sections[index].classList.add("active");
+
+    currentIndex = index;
+
+    // Update navbar
+    const sectionId = sections[index].id;
+
     navlinks.forEach(link => {
-      link.classList.toggle('active', link.dataset.tab === tabId);
+      link.classList.toggle(
+        "active",
+        link.dataset.tab === sectionId
+      );
     });
 
-    tabs.forEach(tab => {
-      tab.classList.toggle('active', tab.id === tabId);
-    });
+    // Update URL
+    history.replaceState(
+      null,
+      "",
+      `#${sectionId}`
+    );
   }
 
-  // Click navigation
+
+  // =========================
+  // ACTIVATE SECTION
+  // =========================
+  function activateTab(tabId) {
+
+    const index = Array.from(sections).findIndex(
+      section => section.id === tabId
+    );
+
+    if (index === -1) {
+      return;
+    }
+
+    showSection(index);
+  }
+
+
+  // =========================
+  // NAVBAR CLICK
+  // =========================
   navlinks.forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
 
-      const tab = link.dataset.tab;
+    link.addEventListener("click", event => {
 
-      history.pushState(null, "", `#${tab}`);
-      activateTab(tab);
+      event.preventDefault();
 
-      // Close mobile menu after click
-      if (toggle) toggle.checked = false;
-      document.body.classList.remove('noscroll');
+      const tabId = link.dataset.tab;
+
+      activateTab(tabId);
+
+      // Close mobile menu
+      if (toggle) {
+        toggle.checked = false;
+      }
+
+      document.body.classList.remove("noscroll");
     });
+
   });
 
-  // On load
-  const hash = location.hash.replace("#", "") || "home";
+
+  // =========================
+  // MOUSE WHEEL
+  // =========================
+ window.addEventListener(
+  "wheel",
+  event => {
+
+    /*
+     * About ke internal scroll areas mein
+     * normal scrolling allow karo.
+     */
+    const internalScroller = event.target.closest(
+      ".exprience-list, .education-list, .skills-list, .about-info"
+    );
+
+    if (internalScroller) {
+      return;
+    }
+
+    /*
+     * Mobile menu open hai to section change mat karo
+     */
+    if (toggle && toggle.checked) {
+      return;
+    }
+
+    /*
+     * Already changing section
+     */
+    if (isScrolling) {
+      return;
+    }
+
+    const activeSection = sections[currentIndex];
+
+    if (!activeSection) {
+      return;
+    }
+
+
+    /* =========================================
+       SCROLL DOWN
+    ========================================= */
+
+    if (event.deltaY > 0) {
+
+      /*
+       * Check whether current section/page
+       * is completely scrolled to bottom.
+       */
+      const isAtBottom =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 5;
+
+
+      /*
+       * Content abhi pura scroll nahi hua hai.
+       * Normal browser scrolling hone do.
+       */
+      if (!isAtBottom) {
+        return;
+      }
+
+
+      /*
+       * Current section complete ho gaya.
+       * Now move to next section.
+       */
+      if (currentIndex < sections.length - 1) {
+
+        isScrolling = true;
+
+        showSection(currentIndex + 1);
+
+        /*
+         * New section ke top par le jao
+         */
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+
+        setTimeout(() => {
+          isScrolling = false;
+        }, 700);
+      }
+
+      return;
+    }
+
+
+    /* =========================================
+       SCROLL UP
+    ========================================= */
+
+    if (event.deltaY < 0) {
+
+      /*
+       * Check whether page is completely
+       * scrolled to top.
+       */
+      const isAtTop = window.scrollY <= 5;
+
+
+      /*
+       * Abhi page top par nahi hai.
+       * Normal upward scrolling hone do.
+       */
+      if (!isAtTop) {
+        return;
+      }
+
+
+      /*
+       * Current section ke top par aa gaye.
+       * Now previous section open karo.
+       */
+      if (currentIndex > 0) {
+
+        isScrolling = true;
+
+        showSection(currentIndex - 1);
+
+        /*
+         * Previous section ke top par rakho
+         */
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+
+        setTimeout(() => {
+          isScrolling = false;
+        }, 700);
+      }
+
+    }
+
+  },
+  { passive: true }
+);
+
+
+  // =========================
+  // ON PAGE LOAD
+  // =========================
+  const hash =
+    location.hash.replace("#", "") || "home";
+
   activateTab(hash);
 
-  // Back/forward browser support
+
+  // =========================
+  // BACK / FORWARD
+  // =========================
   window.addEventListener("popstate", () => {
-    const hash = location.hash.replace("#", "") || "home";
+
+    const hash =
+      location.hash.replace("#", "") || "home";
+
     activateTab(hash);
+
   });
+
 });
 // =====================
 // Services Section Data
 // =====================
 const serviceList = [
-  {
+{
     id: 1,
-    title: "Website Development",
-    icon: "fas fa-code",
-    para: "I build responsive and modern websites using HTML, CSS, JavaScript, React, and more."
+    title: "Full Stack Development",
+    icon: "fas fa-layer-group",
+    para: "End-to-end application development using Angular for frontend and Java Spring Boot for backend."
   },
   {
     id: 2,
@@ -113,31 +326,37 @@ const serviceList = [
     para: "Designing clean, user-friendly interfaces with excellent user experience."
   },
   {
-    id: 3,
-    title: "SEO Optimization",
-    icon: "fas fa-chart-line",
-    para: "Improving website visibility with SEO-friendly structure and performance optimization."
-  },
+  id: 3,
+  title: "Performance Optimization",
+  icon: "fas fa-gauge-high",
+  para: "Optimizing application performance through efficient code, faster database queries, API optimization, and improved response times."
+},
   {
     id: 4,
     title: "Database Management",
     icon: "fas fa-database",
     para: "Designing and managing relational databases using MySQL with optimized queries."
   },
-  {
-    id: 5,
-    title: "Code Optimization & Maintenance",
-    icon: "fas fa-tools",
-    para: "Improving application performance, fixing bugs, and maintaining clean, efficient code."
-  },
-  {
-    id: 6,
-    title: "Full Stack Development",
-    icon: "fas fa-layer-group",
-    para: "End-to-end application development using Angular for frontend and Java Spring Boot for backend."
-  }
+{
+  id: 5,
+  title: "System Architecture",
+  icon: "fas fa-sitemap",
+  para: "Designing scalable system architectures with microservices, REST APIs, database integration, and reliable service communication."
+},
+{
+  id: 6,
+  title: "Security & SDLC",
+  icon: "fas fa-shield-halved",
+  para: "Implementing secure coding, authentication, authorization, API security, and structured SDLC practices for reliable application development."
+}
 ];
 
+
+
+
+// =====================
+// Render Services
+// =====================
 // =====================
 // Render Services
 // =====================
@@ -147,14 +366,29 @@ if (serviceContainer) {
   serviceContainer.innerHTML = serviceList
     .map(service => `
       <div class="box">
+
         <div class="head-icons">
           <i class="${service.icon}"></i>
-          <span><i class="ph ph-arrow-down-right"></i></span>
+
+          <span>
+            <i class="ph ph-arrow-down-right"></i>
+          </span>
         </div>
 
         <h3>${service.title}</h3>
+
         <div class="spacer"></div>
-        <p>${service.para}</p>
+
+        <div class="service-description">
+          <p>${service.para}</p>
+
+          <span
+            class="more-info"
+            tabindex="0"
+            data-full-text="${service.para}"
+          >...</span>
+        </div>
+
       </div>
     `)
     .join("");
